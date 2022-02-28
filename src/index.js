@@ -1,3 +1,3 @@
-import sliderMain from "./modules/slider";
+import { game } from "./modules/game";
 
-sliderMain();
+game();

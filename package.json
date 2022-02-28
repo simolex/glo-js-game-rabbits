@@ -1,5 +1,5 @@
 {
-  "name": "webpack-default",
+  "name": "game-rabbits",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simolex/glo-js-webpack.git"
+    "url": "git+https://github.com/simolex/glo-js-game-rabbits.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/simolex/glo-js-webpack/issues"
+    "url": "https://github.com/simolex/glo-js-game-rabbits/issues"
   },
-  "homepage": "https://github.com/simolex/glo-js-webpack#readme",
+  "homepage": "https://github.com/simolex/glo-js-game-rabbits#readme",
   "devDependencies": {
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
