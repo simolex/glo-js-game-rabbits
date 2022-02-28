@@ -12,13 +12,23 @@ export const game = () => {
     });
     return position;
   };
+  const getNumBlock = (blockElement) => {
+    return blockElement.querySelector(".block-number");
+  };
+  const swapContent = (elementA, elementB) => {
+    [getNumBlock(elementA).textContent, getNumBlock(elementB).textContent] = [
+      getNumBlock(elementB).textContent,
+      getNumBlock(elementA).textContent,
+    ];
+  };
 
   squareBody.addEventListener("click", (e) => {
     const blockPosition = getBlockPosition(e.target.closest(".block"));
     switch (true) {
       case !!e.target.closest(".left"):
         if (blockPosition > 0) {
-          blocks[blockPosition - 1].before(blocks[blockPosition]);
+          swapContent(blocks[blockPosition - 1], blocks[blockPosition]);
+          //blocks[blockPosition - 1].before(blocks[blockPosition]);
         }
         break;
       case !!e.target.closest(".right"):
