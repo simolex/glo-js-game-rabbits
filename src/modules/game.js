@@ -12,9 +12,11 @@ export const game = () => {
     });
     return position;
   };
+
   const getNumBlock = (blockElement) => {
     return blockElement.querySelector(".block-number");
   };
+
   const swapContent = (elementA, elementB) => {
     [getNumBlock(elementA).textContent, getNumBlock(elementB).textContent] = [
       getNumBlock(elementB).textContent,
@@ -28,41 +30,29 @@ export const game = () => {
       case !!e.target.closest(".left"):
         if (blockPosition > 0) {
           swapContent(blocks[blockPosition - 1], blocks[blockPosition]);
-          //blocks[blockPosition - 1].before(blocks[blockPosition]);
         }
         break;
       case !!e.target.closest(".right"):
         if (blockPosition < 24) {
-          blocks[blockPosition + 1].after(blocks[blockPosition]);
+          swapContent(blocks[blockPosition + 1], blocks[blockPosition]);
         }
         break;
       case !!e.target.closest(".top"):
         if (blockPosition - 5 >= 0) {
-          blocks[blockPosition - 5].before(blocks[blockPosition]);
-          if (blockPosition < 24) {
-            blocks[blockPosition + 1].before(blocks[blockPosition - 5]);
-          } else {
-            blocks[blockPosition - 1].after(blocks[blockPosition - 5]);
-          }
+          swapContent(blocks[blockPosition - 5], blocks[blockPosition]);
         }
         break;
       case !!e.target.closest(".bottom"):
         if (blockPosition + 5 <= 24) {
-          blocks[blockPosition + 5].before(blocks[blockPosition]);
-          if (blockPosition > 0) {
-            blocks[blockPosition - 1].after(blocks[blockPosition + 5]);
-          } else {
-            blocks[blockPosition + 1].before(blocks[blockPosition + 5]);
-          }
+          swapContent(blocks[blockPosition + 5], blocks[blockPosition]);
         }
         break;
     }
-    blocks = squareBody.querySelectorAll(".block");
   });
 
   btnReset.addEventListener("click", () => {
     blocks.forEach((elem, index) => {
-      elem.querySelector(".block-number").textContent = index + 1 + "";
+      getNumBlock(elem).textContent = index + 1 + "";
     });
   });
 };
